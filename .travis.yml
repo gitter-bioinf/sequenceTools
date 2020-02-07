@@ -1,0 +1,24 @@
+sudo: required
+
+language: c
+
+services:
+  - docker
+
+before_script:
+  - docker build --tag devel -f Dockerfile.dev .
+
+script:
+  - docker create --name develcontainer devel
+  - mkdir sequenceTools
+  - docker cp develcontainer:/source/dist-newstyle/build/x86_64-linux/ghc-8.6.5/sequenceTools-1.4.0/x/sequenceTools/build/sequenceTools/sequenceTools sequenceTools 
+  - cp LICENSE sequenceTools
+  - tar -cvzf sequencetools_static.tar.gz sequenceTools
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: $GITHUB_TOKEN
+  file: "sequencetools_static.tar.gz"
+  on:
+    tags: true

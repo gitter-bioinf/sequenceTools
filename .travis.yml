@@ -11,7 +11,9 @@ before_script:
 script:
   - docker create --name develcontainer devel
   - mkdir sequenceTools
-  - docker cp develcontainer:/source/dist-newstyle/build/x86_64-linux/ghc-8.6.5/sequenceTools-1.4.0/x/sequenceTools/build/sequenceTools/sequenceTools sequenceTools 
+  - docker cp develcontainer:/source/dist-newstyle/build/x86_64-linux/ghc-8.6.5/sequenceTools-1.4.0.5/x/vcf2eigenstrat/build/vcf2eigenstrat/vcf2eigenstrat sequenceTools
+  - docker cp develcontainer:/source/dist-newstyle/build/x86_64-linux/ghc-8.6.5/sequenceTools-1.4.0.5/x/pileupCaller/build/pileupCaller/pileupCaller sequenceTools
+  - docker cp /source/dist-newstyle/build/x86_64-linux/ghc-8.6.5/sequenceTools-1.4.0.5/x/genoStats/build/genoStats/genoStats sequenceTools
   - cp LICENSE sequenceTools
   - tar -cvzf sequencetools_static.tar.gz sequenceTools
 

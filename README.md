@@ -13,6 +13,8 @@ This repository contains some programs that I use for processing sequencing data
 3. Add `~/.local/bin` to your PATH, for example by adding to your `~/.profile` or `~/.bash_profile` the line `PATH=$PATH:$HOME/.local/bin`. Run `source ~/.profile` or `source ~/.bash_profile`, respectively, to update your path.
 4. Run `pileupCaller --version`. It should output `1.4.0`. You're all set.
 
+# And conda
+
 ## pileupCaller
 
 The main tool in this repository is the program `pileupCaller` to sample alleles from low coverage sequence data. The first step is to generate a “pileup” file at all positions you wish to genotype. To do that, here is a typical command line, which restricts to mapping and base quality of 30:
